@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 
+        reset
+        */
+        * {
+            margin: 0;
+            padding: 0;
+            /* box-sizing: ; */
+        }
+
+
+        /* set variable  */
+        :root {
+            /*
+                varaible : value
+             */
+            /* --primary-color:# */
+            /* --secondary-color:# */
+            --font-size: 32px;
+        }
+
+        body {
+            font-size: var(--font-size)
+        }
+
+        /*  
+            tag/element 
+            class
+            id 
+            selector {
+                key : value;
+            }
+            */
+
+        /* p {
+            color: red;
+        }
+        #five.cfive{
+            color:black;
+            background-color: black;
+        }
+
+        #five {
+            color: aqua;
+        }
+
+        /* 010 */
+        .cfive {
+            color: yellow
+        }
+
+        */
+
+        /* 002 */
+        div p {
+            color: red;
+        }
+
+        /* 001 */
+        p {
+            color: teal;
+        }
+
+        /* 110 */
+        #five.cfive {
+            color: aqua !important
+        }
+
+
+        /* 
+            specificity score
+
+            id class tag
+            0 0 1
+
+
+
+            importnt inline id class tag
+             00000
+        */
+        /* .container + p{ */
+
+
+        /*
+            011
+            */
+        .container~p {
+            color: blue
+        }
+
+        #first [type="button"] {
+            color: red
+        }
+
+
+        /* 001  */
+        form {
+            margin: 20px;
+        }
+
+        a {
+            margin: 10px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+
+        /* 
+        100 
+        
+
+        idcount class-count element-count
+        100
+        */
+
+
+        #one {
+            margin-bottom: 20px;
+        }
+
+        #two {
+            /* top right bottom left  */
+            margin: 16px 0 0 0;
+            /* margin-top: ; */
+        }
+
+        .wrapper {
+            height: 400px;
+            width: 400px;
+            background-color: teal;
+        }
+
+        .item {
+            height: 200px;
+            width: 200px;
+            background-color: yellow;
+            display: inline-block;
+        }
+
+        .two {
+            margin-left: -8px;
+            /* margin-left:-4px; */
+            margin-left: calc((var(--font-size)/4) * -1);
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body style="">
+
+    <div class="wrapper">
+        <div class="item">one</div>
+        <div class="item two">two</div>
+    </div>
+
+    <hr>
+    <p id="one">one</p>
+    <p id="two">tow</p>
+
+    <hr>
+    <h1>heading1</h1>
+    <h1>heading2</h1>
+    <p>one</p>
+    <form>
+        <input />
+    </form>
+
+    <a href="#">home</a>
+    <a href="#">home</a>
+    <a href="#">home</a>
+
+    <!-- <div class="container">
+        <div class="box">one</div>
+        <div class="box">tow</div>
+        <div class="box" id="unique">theree</div>
+        <div class="box">four</div>
+        <p id="five" class="cfive" style="color:red">five</p>
+        <p id="" class="cfive">cfive</p>
+    </div>
+
+    <p>one</p>
+    <p>tow</p>
+
+    <form id="first">
+        <button type="button">click</button>
+    </form>
+    <form>
+        <button type="button">click</button>
+    </form> -->
+
+
+</body>
+
+</html>

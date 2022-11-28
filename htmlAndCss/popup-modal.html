@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .modal {
+            height: 40vh;
+            width: 400px;
+            border: 1px solid black;
+            background-color: white;
+            position: fixed;
+            top: 10px;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+            display: none;
+            z-index: 3;
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        .layer {
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            top: 0;
+            display: none;
+            z-index: 1;
+        }
+
+        .layer.active{
+            display: block;
+        }
+
+    </style>
+</head>
+
+<body>
+    <button onclick="
+        document.getElementById('modal').classList.add('active')
+        document.getElementById('layer').classList.add('active')
+        ">
+        show modal
+    </button>
+    <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, commodi voluptate, numquam, error blanditiis
+        inventore obcaecati explicabo incidunt mollitia eum delectus libero ullam odio reprehenderit ipsum. Molestiae
+        tempora ratione quidem?
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, commodi voluptate, numquam, error blanditiis
+        inventore obcaecati explicabo incidunt mollitia eum delectus libero ullam odio reprehenderit ipsum. Molestiae
+        tempora ratione quidem?
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, commodi voluptate, numquam, error blanditiis
+        inventore obcaecati explicabo incidunt mollitia eum delectus libero ullam odio reprehenderit ipsum. Molestiae
+        tempora ratione quidem?
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, commodi voluptate, numquam, error blanditiis
+        inventore obcaecati explicabo incidunt mollitia eum delectus libero ullam odio reprehenderit ipsum. Molestiae
+        tempora ratione quidem?
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, commodi voluptate, numquam, error blanditiis
+        inventore obcaecati explicabo incidunt mollitia eum delectus libero ullam odio reprehenderit ipsum. Molestiae
+        tempora ratione quidem?
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente, commodi voluptate, numquam, error blanditiis
+        inventore obcaecati explicabo incidunt mollitia eum delectus libero ullam odio reprehenderit ipsum. Molestiae
+        tempora ratione quidem?
+    </p>
+    <div class="modal" id="modal">
+        <button onclick="
+            document.getElementById('modal').classList.remove('active')
+            document.getElementById('layer').classList.remove('active')
+            ">closemodal</button>
+    </div>
+    <div class="layer" id="layer">
+    </div>
+</body>
+
+</html>
