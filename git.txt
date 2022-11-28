@@ -1,0 +1,3 @@
+git init
+git remote -v // check
+git remote add origin <github/gitlab url>
