@@ -1,0 +1,11 @@
+
+/* 
+
+
+*/
+
+/* 
+
+    strict comparision
+
+*/
