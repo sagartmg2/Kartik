@@ -10,7 +10,6 @@ let students = [
 ]
 
 
-
 /* 
     TODO: 
      student with roll 2 have Graphic as one of his course 
