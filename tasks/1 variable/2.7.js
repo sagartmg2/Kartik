@@ -1,5 +1,7 @@
 
-console.log(" double quote = ""  ")
+// console.log(' double quote = ""  ')
+// console.log(` double quote = ""  `)
+console.log(" double quote = \"\"  \n new line ")
 
 /* 
 
