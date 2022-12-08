@@ -27,6 +27,7 @@ console.log("person2", person2);
     modify person2's country to Nepal
     and check what happens to person1's country if there seems to be a problem fix it. // HINT spread operator. 
 */
+
 console.log(person2.country);
 console.log(person1.country);
 
