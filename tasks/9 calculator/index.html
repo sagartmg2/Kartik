@@ -28,11 +28,33 @@
 
 
     <div>
-        // code here
+        <p>
+            result : <span></span>
+        </p>
+        <form onsubmit="calculate(event)">
+
+            <input type="number" id="first">
+            <select>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">x</option>
+            </select>
+            <input type="number" id="second">
+            <input type="submit" value="calucate">
+        </form>
+
+
     </div>
 
 
+
+
     <script>
+
+        function calculate(e) {
+            e.preventDefault();
+            console.log("here");
+        }
 
     </script>
 

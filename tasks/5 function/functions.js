@@ -16,7 +16,7 @@ let persons = [
         last_name: "Wick",
         age: 30
     },
-// ]
+]
 
 // persons[0].first_name + 
 // console.log(persons[0].first_name + persons[0].last_name);
