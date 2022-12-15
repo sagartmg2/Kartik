@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import './index.css';  // link rel="stylesheet" href="./index.cs"
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Home from "./Home"
 import About from './About';
+import Card from './Card';
 
 // App()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* helo */}
+    {/* <Card/> */}
+    <App />
     {/* 
       App()
 
@@ -23,7 +27,7 @@ root.render(
     {/* App()  */}
     {/* <App /> */}
     {/* <Home/> */}
-    <About/>
+    {/* <About/> */}
     {/* 
       <h1>app component</h1>
     */}
