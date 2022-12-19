@@ -17,12 +17,14 @@ const Counter = () => {
         count = count + 1
         console.log({ count });
         setNumber(number + 1)
+
+        // number = number+ 1
     }
 
     function decrement() {
         count = count - 1
         console.log({ count });
-        setNumber(number - 1)
+        // setNumber(number - 1)
     }
 
     console.log("render ");

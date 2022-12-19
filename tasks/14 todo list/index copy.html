@@ -22,12 +22,22 @@
         <script>
 
             // let todos = ["task-one", "task-two",];
-            let todos = ["ONE"];
+            let todos = [];
+
+            if (localStorage.getItem("items")) {
+                todos = JSON.parse(localStorage.getItem("items"))
+                convertArraytoHTML(null,todos)
+            }
+
+
+
+
+
             let items = [{
-                name: one,
+                name: "one",
                 quantiy: 10
             }, {
-                name: two,
+                name: "two",
                 quantiy: 20
             }];
 
@@ -37,6 +47,20 @@
                     temp_str = temp_str + `<li>${task}</li>`
                 })
                 return temp_str
+            }
+
+
+            function convertArraytoHTML(e, todos) {
+
+
+                let list_in_string = convertTodoArrayToLiString(todos)
+                document.getElementsByTagName("ul")[0].innerHTML = list_in_string
+
+                if (e) {
+                    e.target.todo_name.value = ""
+                }
+
+                localStorage.setItem("items", JSON.stringify(todos))
             }
 
             // document.getElementsByTagName("ul")1[0].innerHTML = list_in_string
@@ -49,11 +73,7 @@
 
                 if (input_value) {
                     todos.push(input_value)
-
-                    let list_in_string = convertTodoArrayToLiString(todos)
-                    document.getElementsByTagName("ul")[0].innerHTML = list_in_string
-
-                    e.target.todo_name.value = ""
+                    convertArraytoHTML(e, todos)
                 }
             }
         </script>

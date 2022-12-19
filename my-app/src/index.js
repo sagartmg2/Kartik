@@ -14,11 +14,17 @@ import Counter from './Counter';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 /* 
-
+  Tood(one)
+  Tood("two")
 */
 root.render(
   // <Counter />
-  <Todo/>
+
+
+  <>
+    <Todo title="todo one" />
+    {/* <Todo title="todo tow" /> */}
+  </>
 );
 
 // If you want to start measuring performance in your app, pass a function
