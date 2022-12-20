@@ -9,7 +9,8 @@ const Counter = () => {
 
     let initial_value = 100
 
-    const [number, setNumber] = useState(initial_value)  //  [ inital_value:10 , function   ]
+    const [number, setNumber] = useState(initial_value)  //  return [ inital_value:10 , function   ]
+    // let number = 100
 
     const [todos, setTodos] = useState([1, 2, 34])
 
@@ -30,6 +31,7 @@ const Counter = () => {
     console.log("render ");
 
     console.log({ todos });
+    
     return (
         <div>
             <h1>number: {number}</h1>

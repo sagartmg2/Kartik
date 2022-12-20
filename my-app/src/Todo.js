@@ -7,7 +7,8 @@ import { useState } from "react";
 function Todo(props) {
 
     const [todos, setTodo] = useState([]);
-    const [task_name, setTaskName] = useState("");
+    const [task_name, setTaskName] = useState("asdfasdf");
+    // let task_name = asdfadfa
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -16,6 +17,7 @@ function Todo(props) {
         if (task_name) {
             setTodo([...todos, e.target.task_name.value])
             setTaskName("")
+            // task_name = ""
         }
     }
 

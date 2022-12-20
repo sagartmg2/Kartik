@@ -8,6 +8,7 @@ import About from './About';
 import Card from './Card';
 import Todo from './Todo';
 import Counter from './Counter';
+import Shopping from './Shopping';
 
 // App()
 
@@ -18,11 +19,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
   Tood("two")
 */
 root.render(
-  // <Counter />
 
 
   <>
-    <Todo title="todo one" />
+    {/* <Counter /> */}
+    <Shopping/>
+    {/* <Todo title="todo one" /> */}
     {/* <Todo title="todo tow" /> */}
   </>
 );
