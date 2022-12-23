@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .projects {}
+
+        .project {
+            padding: 10px;
+            border: 2px solid black;
+            margin: 10px;
+            text-align: center;
+        }
+
+        @font-face {
+            font-family: Roboto;
+            src: url("./Roboto_Mono/RobotoMono-VariableFont_wght.ttf");
+        }
+
+        body {
+            font-family: 'Roboto';
+        }
+
+        /* @media (orientation:portrait) { */
+        /* 
+            desktop first
+            mobile  first
+
+*/
+        /* @media (max-width:breakpoints) { */
+
+
+        @media (min-width:768px) {
+            .projects {
+                display: flex;
+            }
+        }
+
+        .project__title--big {
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <hr>
+    <h1>Projects</h1>
+    <hr>
+
+    <div class="projects">
+        <div class="project">
+            <img src="./git.png" alt="git logo" />
+            <p class="project__title--big">git</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem sequi nostrum rem libero repudiandae,
+                quod, ea et eveniet mollitia repellat eos modi provident voluptatem. Rerum odit corporis ipsum laborum
+                eos!</p>
+        </div>
+        <div class="project">
+            <img src="./node.png" alt="git logo" />
+            <p>node</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem sequi nostrum rem libero repudiandae,
+                quod, ea et eveniet mollitia repellat eos modi provident voluptatem. Rerum odit corporis ipsum laborum
+                eos!</p>
+        </div>
+        <div class="project">
+            <img src="./react.png" alt="git logo" />
+            <p>react</p>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem sequi nostrum rem libero repudiandae,
+                quod, ea et eveniet mollitia repellat eos modi provident voluptatem. Rerum odit corporis ipsum laborum
+                eos!</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

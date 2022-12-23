@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>To do list</h>
+        <form onsubmit="handleSubmit(event)">
+            <input type="text" required id="todo_name_id" name="todo_name" value="" />
+            <input type="submit">
+        </form>
+        <ul>
+
+
+        </ul>
+
+        <script>
+
+            // let todos = ["task-one", "task-two",];
+            let todos = [];
+
+            if (localStorage.getItem("items")) {
+                todos = JSON.parse(localStorage.getItem("items"))
+                convertArraytoHTML(null,todos)
+            }
+
+
+
+
+
+            let items = [{
+                name: "one",
+                quantiy: 10
+            }, {
+                name: "two",
+                quantiy: 20
+            }];
+
+            function convertTodoArrayToLiString(todos) {
+                let temp_str = ""
+                todos.forEach((task) => {
+                    temp_str = temp_str + `<li>${task}</li>`
+                })
+                return temp_str
+            }
+
+
+            function convertArraytoHTML(e, todos) {
+
+
+                let list_in_string = convertTodoArrayToLiString(todos)
+                document.getElementsByTagName("ul")[0].innerHTML = list_in_string
+
+                if (e) {
+                    e.target.todo_name.value = ""
+                }
+
+                localStorage.setItem("items", JSON.stringify(todos))
+            }
+
+            // document.getElementsByTagName("ul")1[0].innerHTML = list_in_string
+
+            const handleSubmit = (e) => {
+                e.preventDefault()
+                let input_value = e.target.todo_name.value
+
+                // document.getElementsByTagName("ul")[0].innerHTML = 
+
+                if (input_value) {
+                    todos.push(input_value)
+                    convertArraytoHTML(e, todos)
+                }
+            }
+        </script>
+</body>
+
+</html>

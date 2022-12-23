@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Caluclator app</h1>
+    <pre>
+        Hint
+            - create three input fileds
+            - first number
+            - dropdown to choose the operator ( add ,multiple ,...other arthematic operators)
+            - second number
+
+        have a calculate button and on click of it, it the result should be printed in screen
+
+        Hint
+            - to change content of html , we have to do dom manipulation
+            make use of
+            - document.getElementById
+            - &lt;element&gt;.innerHTML
+    </pre>
+
+
+    <div>
+        <form onsubmit="calc(event)">
+            <input type="number" id="num1">
+            <select id="operators">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="X">X</option>
+                <option value="/">/</option>
+            </select>
+            <input type="number" id="num2">
+            <!-- <button type="button">Calculate</button> -->
+            <input type="submit" value="Calculate">
+        </form>
+
+        <p>Result:</p>
+        <input type="text" id="result">
+    </div>
+
+
+    <script>
+        function calc(e) {
+            e.preventDefault();
+
+            var n1 = document.getElementById('num1');
+            var n2 = document.getElementById('num2');
+            // var res = document.getElementById('result');
+            var operators = document.getElementById('operators');
+            var res
+
+            if (operators == '+') {
+                res = n1 + n2;
+            }
+            if (operators == '-') {
+                res = n1 - n2;
+            }
+            if (operators == 'X') {
+                res = n1 * n2;
+            }
+            if (operators == '/') {
+                res = n1 / n2;
+            }
+
+
+            document.getElementById('result').innerHTML = res;
+            console.log("hi");
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

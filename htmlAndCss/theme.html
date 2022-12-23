@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body.dark {
+            background-color: black;
+            color: white
+        }
+
+        #btn-light {
+            display: none;
+        }
+
+        .dark #btn-light {
+            display: inline;
+        }
+
+        .dark #btn-dark {
+            display: none;
+        }
+
+        #btn-dark:hover {
+            color: red;
+        }
+
+        .required-field {
+            color: red;
+        }
+
+        .required-el:before {
+            content: " * ";
+            color: red;
+        }
+    </style>
+</head>
+
+<body id="body">
+
+    <form>
+        <div>
+            <label for="username" class="required-el"> username</label>
+            <input placeholder="username" required />
+        </div>
+        <div>
+            <label for="username"> username<span class="required-field">*</span></label>
+            <input placeholder="username" />
+        </div>
+        <div>
+            <label for="username"> username<span class="required-field">*</span></label>
+            <input placeholder="username" />
+        </div>
+    </form>
+
+
+    <button id="btn-dark" onclick="document.getElementById('body').classList.add('dark')">darak theeme</button>
+    <button id="btn-light" onclick="document.getElementById('body').classList.remove('dark')">light theeme</button>
+
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, illum in eos porro, neque nulla,
+        exercitationem repudiandae fugit qui eum consequatur nostrum ad. Ea rem ipsam repellendus reiciendis dolores
+        officiis!
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, illum in eos porro, neque nulla,
+        exercitationem repudiandae fugit qui eum consequatur nostrum ad. Ea rem ipsam repellendus reiciendis dolores
+        officiis!
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, illum in eos porro, neque nulla,
+        exercitationem repudiandae fugit qui eum consequatur nostrum ad. Ea rem ipsam repellendus reiciendis dolores
+        officiis!
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, illum in eos porro, neque nulla,
+        exercitationem repudiandae fugit qui eum consequatur nostrum ad. Ea rem ipsam repellendus reiciendis dolores
+        officiis!
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, illum in eos porro, neque nulla,
+        exercitationem repudiandae fugit qui eum consequatur nostrum ad. Ea rem ipsam repellendus reiciendis dolores
+        officiis!
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, illum in eos porro, neque nulla,
+        exercitationem repudiandae fugit qui eum consequatur nostrum ad. Ea rem ipsam repellendus reiciendis dolores
+        officiis!
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, illum in eos porro, neque nulla,
+        exercitationem repudiandae fugit qui eum consequatur nostrum ad. Ea rem ipsam repellendus reiciendis dolores
+        officiis!
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, illum in eos porro, neque nulla,
+        exercitationem repudiandae fugit qui eum consequatur nostrum ad. Ea rem ipsam repellendus reiciendis dolores
+        officiis!
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, illum in eos porro, neque nulla,
+        exercitationem repudiandae fugit qui eum consequatur nostrum ad. Ea rem ipsam repellendus reiciendis dolores
+        officiis!
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam, illum in eos porro, neque nulla,
+        exercitationem repudiandae fugit qui eum consequatur nostrum ad. Ea rem ipsam repellendus reiciendis dolores
+        officiis!
+    </p>
+
+</body>
+
+</html>

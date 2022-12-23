@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="korea samsung">
+    <style>
+        table {
+            width: 100%;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+
+        #target {
+            list-style-type: none;
+        }
+
+        input {
+            margin-bottom: 1em;
+        }
+    </style>
+    <script src="./index.js" defer></script>
+</head>
+
+<body>
+    <form onsubmit="handleFormSubmit(event)">
+
+        <div>
+            <label for="username">username</label>
+            <!-- <input type="text" id="username" value="useranme" name="username" autofocus /> -->
+        </div>
+        <div>
+            <label>password</label>
+            <input type="password" required placeholder="PASSWORD" id="password" />
+        </div>
+        <div>
+            <label>password</label>
+            <input type="email" placeholder="email" name="email" />
+        </div>
+        <div>
+            <label>age</label>
+            <input type="number" />
+        </div>
+        <div>
+            <label>description</label>
+            <textarea rows="10"></textarea>
+        </div>
+        <div>
+            <label>dob</label>
+            <input type="date" />
+        </div>
+        <div>
+            <label>iamges</label>
+            <!-- <input type="file" multiple accept="image/* /> -->
+            <input type="file" multiple accept="image/*" />
+        </div>
+        <div>
+            <label>gender</label>
+            <select>
+                <option>male</option>
+                <option selected>female</option>
+            </select>
+        </div>
+        <div>
+            <label for="terms">agree terms and conditions</label>
+            <input type="checkbox" id="terms" />
+        </div>
+        <div>
+            <label for="terms">agree terms and conditions</label>
+            <input type="checkbox" id="terms" disabled />
+        </div>
+
+        <button type="button" onclick="addNewField()">add new fields</button>
+        <button type="button" disabled onclick="addNewField()">add new fields</button>
+
+        <button type="submit">submit</button>
+
+    </form>
+
+
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">home</a></li>
+                <li><a href="#">home</a></li>
+                <li><a href="#">home</a></li>
+                <li><a href="#">home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+    </main>
+
+    <div class="main">
+
+    </div>
+
+    <div class="header" id="header">
+        <nav>
+            <ul>
+                <li><a href="#">home</a></li>
+                <li><a href="#">home</a></li>
+                <li><a href="#">home</a></li>
+                <li><a href="#">home</a></li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <iframe src="https://mindrisers.com.np/" width="600" height="450" style="border:0;" allowfullscreen=""
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+    <iframe src="http://google.com/" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27858.71681828874!2d79.50064989413325!3d29.21356386748945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39a09addbd0c86d1%3A0x6793e360cb3d930f!2sHaldwani%2C%20Uttarakhand%20263139%2C%20India!5e0!3m2!1sen!2snp!4v1668335424800!5m2!1sen!2snp"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th style="padding:0">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th colspan="2">
+                                    name
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>first_name</th>
+                                <th>lst_name_name</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </th>
+                <th>email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>john</td>
+                <td>john@@</td>
+            </tr>
+            <tr>
+                <td>john</td>
+                <td>john@@</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <h1>
+        hello
+    </h1>
+    <a>one</a>
+    <a>tow</a>
+    <p>one</p>
+    <p>one <span>small text</span></p>
+    <span>small text</span>
+    <span>small text</span>
+    <!-- the main heading of this page</h1> -->
+
+    <!-- <table border="1px"> -->
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">name</th>
+                <th rowspan="2">quantity</th>
+            </tr>
+            <tr>
+                <th>first name</th>
+                <th>last_name </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>one</td>
+                <td>one</td>
+                <td>one</td>
+            </tr>
+            <tr>
+                <td>one</td>
+                <td>one</td>
+                <td>one</td>
+            </tr>
+            <tr>
+                <td>one</td>
+                <td>one</td>
+                <td>one</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">totoal</td>
+                <td>1000</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul type="square">
+        <li>one</li>
+        <li>one</li>
+        <li>one</li>
+    </ul>
+    <ol>
+        <li>one</li>
+        <li>one</li>
+        <li>one</li>
+    </ol>
+
+    <ul id="target">
+
+        <li><a href="html/about.html">about</a></li>
+        <li><a href="./html/about.html">html/about</a></li>
+        <li><a href="https://www.google.com/webhp?hl=en&sa=X&ved=0ahUKEwj5zfLKsaP7AhXjXnwKHRHMB3UQPAgI"
+                target="_blank">google
+            </a>
+        </li>
+    </ul>
+    <a href="./iamge.jpg" download>image download</a>
+    <a href="https://i.picsum.photos/id/536/200/200.jpg?hmac=Ncz_gqWPnq2UI5u-tKvEfwaXLLhoc4ryLBjGJ7fjR1c"
+        download>remote image download</a>
+    <br>
+
+    <img src="https://i.picsum.photos/id/536/200/200.jpg?hmac=Ncz_gqWPnq2UI5u-tKvEfwaXLLhoc4ryLBjGJ7fjR1c"
+        alt="image of a pool" width="200" height="200">
+
+    <img src="./iamge.jpg" alt="W3Schools.com" width="104" height="142">
+
+    <video src="./BIRD.mp4" controls autoplay></video>
+
+    <h1 style="color:maroon;">heading 1</h1>
+    <h1 style="color:rgb(155, 76, 51);">heading 1</h1>
+    <h2 title="I'm a tooltip">heading 2</h2>
+    <h2 style="color:#FF0000">heading 2</h2>
+    <h2>heading 2</h2>
+    <h3>heading 33</h3>
+    <h6>heading 6</h6>
+    <p>hello welcome. नेपालीमा टाईप गर्नुहोस
+        <hr>
+    </p>
+    <p><b>Lorem ipsum dolor sit amet consectetur</b><br> <strong>
+            adipisicing elit. Architecto excepturi magnam quia quod voluptatem</strong>
+        quae
+        minus hic! Dolorum delectus repellat pariatur rerum temporibus nesciunt at sapiente impedit soluta voluptatem.
+        Cupiditate?
+    </p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto excepturi magnam quia quod voluptatem quae
+        minus hic! Dolorum delectus repellat pariatur rerum temporibus nesciunt at sapiente impedit soluta voluptatem.
+        Cupiditate?
+
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore delectus alias, natus eligendi nihil quas
+        accusantium? Ad mollitia rerum fugiat corporis eaque, ab delectus autem excepturi repellendus praesentium ex
+        eius.
+    </p>
+    <pre>
+        My Bonnie lies over the ocean.
+      
+
+        My Bonnie lies over the sea.
+      
+        My Bonnie lies over the ocean.
+      
+        Oh, bring back my Bonnie to me.
+      </pre>
+
+    <input tyep="text" autofocus />
+    <footer>
+        <!-- <span>facebook</span><img src="./facebook.png" width="50px" height="50px" /> -->
+        <span>facebook</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path
+                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+        </svg>
+        <!-- <img src="./iconmonstr-facebook-1.svg" width="50px" height="50px" /> -->
+
+    </footer>
+    <script>
+        function handleButtonCllick() {
+            console.log(document.getElementById("username").value)
+            console.log(document.getElementById("password").value)
+        }
+    </script>
+
+    <!-- <script src="./index.js"></script> -->
+
+</body>
+
+</html>

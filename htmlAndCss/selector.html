@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- // external css -->
+    <link rel="stylesheet" href="./styles.css">
+
+    <!--  internal css  -->
+    <style>
+        /* 
+        syntax
+            selector  {
+                key/property : value
+            }
+
+            selector
+                - id  #
+                - class  . dot
+                - element
+            
+            combined selector 
+                .red-text.important
+                descendent selctor
+                direct clild selector 
+                atrribute selector
+
+                adjecent sibling selector  + 
+                general sibling selector  ~
+
+            specificity score
+
+        */
+
+        /* h1 {
+            color: red;
+        } */
+
+        /* div {
+            color: red;
+        } */
+
+        .red-text {
+            color: red;
+        }
+
+        #red-text {
+            color: red;
+        }
+
+        /* body .red-text {
+            color: blue
+        } */
+
+        body>.red-text {
+            color: blue;
+        }
+
+        .red-text.important {
+            color: aqua;
+        }
+
+        #four,
+        #five {
+            color: purple
+        }
+
+        /* div{
+            color:aqua
+        } */
+
+        /* input{
+            background-color: antiquewhite;
+        } */
+
+        [type="password"] {
+            background-color: antiquewhite;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- <h1>hello world</h1> -->
+    <!-- <h1 style="color:aqua">hello world</h1> -->
+    <!-- <h2>h2...hello world</h2> -->
+
+    <!-- <div id="red-text"> -->
+    <input type="text" />
+    <input type="password" />
+    <input type="text" />
+
+
+    <div class="red-text important">
+        <div>
+            <p>two</p>
+        </div>
+        <div>
+            <p>thre</p>
+        </div>
+        <div>
+            <p id="four">four</p>
+        </div>
+        <div>
+            <p id="five">five</p>
+        </div>
+    </div>
+    <div>
+        <h1>hello world</h1>
+        <p>loream.... </p>
+    </div>
+    <!-- <div id="red-text"> -->
+    <div>
+        <div class="red-text">
+            <h1>hello world</h1>
+            <p>loream.... </p>
+        </div>
+
+    </div>
+    <div>
+        <h1>hello world</h1>
+        <p>loream.... </p>
+    </div>
+
+</body>
+
+</html>

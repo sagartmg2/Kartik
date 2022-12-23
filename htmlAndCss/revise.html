@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- <link rel="stylesheet" href="../"> -->
+    <link rel="stylesheet" href="./revise.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-size: 16px;
+        }
+
+        /* 000 */
+        /* 002 */
+        body h1 {
+            color: red
+        }
+
+        /* 001 */
+        h1 {
+            color: rebeccapurple;
+        }
+
+        /* p:not(:nth-child(2)) {
+            color: red;
+        } */
+
+        .product__description--red {
+            color: red !important;
+        }
+
+        h1 {
+
+            width: 50vw;
+            width: 50%;
+            /* height: 100%; */
+            border: 20px solid;
+            padding: 10px;
+            outline: 10px solid orange;
+        }
+
+        .container {
+            width: 50vw;
+            height: 100vh;
+            background-color: teal;
+            font-size: 32px;
+        }
+
+        .container:hover {
+            color: aqua;
+        }
+
+        .box {
+
+            height: 50%;
+            width: 50vw;
+            width: 50%;
+            background-color: orange;
+            font-size: 1rem;
+        }
+
+        .required-field::after {
+            content: " * ";
+            color: rebeccapurple;
+        }
+
+        .realtive,
+        .rel-parent {
+            position: relative;
+        }
+
+        .absolute,
+        .abs-child {
+            position: absolute;
+        }
+
+        .fixed {
+            position: fixed;
+            background-color: red;
+        }
+
+        .flexbox {
+            display: flex;
+            background-color: teal;
+            height: 400px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .item {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            overflow: hidden;
+        }
+
+        @media(max-width:576px) {
+            body {
+                /* font-size: 16px; */
+                color: white;
+            }
+        }
+
+        @media (min-width:768px) {
+            body {
+
+                font-size: 32px;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <img src="https://git-scm.com/images/logo@2x.png"/>
+    <div class="flexbox">
+        <div class="item">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis facere minima nisi temporibus, hic
+                aspernatur saepe quod voluptatibus earum labore cum vero, delectus laboriosam ad suscipit sunt
+                asperiores eum nam!</p>
+        </div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <!-- <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div> -->
+    </div>
+
+    <!-- <div>static</div>
+    <div class="rel-parent">
+        relative parent
+        <div class="abs-child">
+            abs child
+        </div>
+    </div>
+
+    <div class="realtive">realtive</div>
+    <div class="absolute">absolute</div>
+    <div class="fixed">fixed</div> -->
+    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique repudiandae, aliquam magni blanditiis
+        perspiciatis illum neque deserunt, nisi qui fugiat vitae cum laboriosam asperiores ipsa numquam in. Dolore, et
+        placeat?</p> -->
+
+    <!-- <div>sticky</div> -->
+
+    <!-- <label class="required-field">email</label>
+    <input type="text" class=>
+    <div class="container"> -->
+
+    <!-- <div class="box">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, minus! Quaerat, dignissimos quidem
+                sed soluta corporis quisquam cumque exercitationem debitis aperiam iusto nemo aspernatur velit itaque
+                tempora impedit nihil fugiat.</p>
+        </div> -->
+    <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus animi magni eum suscipit veniam. Ratione eos
+            inventore omnis laboriosam culpa cum libero laborum. Doloremque expedita quod voluptatibus fugit laudantium
+            repellat?</p>
+        <p class="product__description--red" style="color:orange">Lorem ipsum dolor sit amet consectetur adipisicing
+            elit.
+            Minus animi magni eum suscipit veniam. Ratione eos
+            inventore omnis laboriosam culpa cum libero laborum. Doloremque expedita quod voluptatibus fugit laudantium
+            repellat?</p>
+        <p class="product__description--red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus animi magni
+            eum
+            suscipit veniam. Ratione eos
+            inventore omnis laboriosam culpa cum libero laborum. Doloremque expedita quod voluptatibus fugit laudantium
+            repellat?</p>
+
+        <h1>
+            h3ading 1
+        </h1>
+        <h2>
+            h3ading 2
+        </h2> -->
+    <!-- </div> -->
+
+</body>
+
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container div {
+            height: 100px;
+            width: 100px;
+            border: 1px solid;
+            margin-bottom: 10px;
+            background-color: teal;
+        }
+
+        .static {
+            position: static;
+        }
+
+        .relative,
+        .rel {
+            position: relative;
+        }
+
+        .absolute {
+            position: absolute;
+        }
+
+        .fixed {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+
+        }
+
+        .sticky {
+            position: sticky;
+            top: 0;
+            background-color: orange;
+        }
+
+        .second {
+            background-color: red;
+        }
+
+        .sticky-relative {
+            position: relative;
+        }
+
+        .relative.div {
+            height: 200px;
+            background-color: orange;
+        }
+
+        .relative.div .absolute.red {
+            height: 50px;
+            background-color: red;
+        }
+
+        .relative.div .absolute.black {
+            height: 50px;
+            background-color: black;
+            top: 30px;
+        }
+
+        .relative.div .absolute.white {
+            height: 50px;
+            background-color: white;
+            top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="static">static</div>
+        <div style="background-color: orange">
+            <div class="relative">relative</div>
+        </div>
+        <div class="absolute">absolute</div>
+        <div class="fixed">fixed</div>
+        <!-- <div class="rel"> -->
+        <!-- </div> -->
+    </div>
+    <div class="relative div">
+        <div class="absolute red">absolute second</div>
+        <div class="absolute black">absolute second</div>
+        <div class="absolute white">absolute second</div>
+    </div>
+    <!-- <div class="sticky">sticky</div> -->
+
+
+
+    <div style="" class="sticky-relative d-none">
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, cumque eius iure enim sunt laudantium
+            vitae. Veritatis quod molestias aperiam ipsum, tenetur sit et vero eligendi magnam obcaecati corporis
+            voluptas!</p>
+        <div class="sticky second">sticky</div>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, cumque eius iure enim sunt laudantium
+            vitae. Veritatis quod molestias aperiam ipsum, tenetur sit et vero eligendi magnam obcaecati corporis
+            voluptas!</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, cumque eius iure enim sunt laudantium
+            vitae. Veritatis quod molestias aperiam ipsum, tenetur sit et vero eligendi magnam obcaecati corporis
+            voluptas!</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, cumque eius iure enim sunt laudantium
+            vitae. Veritatis quod molestias aperiam ipsum, tenetur sit et vero eligendi magnam obcaecati corporis
+            voluptas!</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cupiditate, cumque eius iure enim sunt laudantium
+            vitae. Veritatis quod molestias aperiam ipsum, tenetur sit et vero eligendi magnam obcaecati corporis
+            voluptas!</p>
+
+    </div>
+
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit aliquam recusandae accusamus nam obcaecati
+        error, non fugit. Quia praesentium dolorum perspiciatis excepturi officia aut adipisci sint odio corporis.
+        Aliquid, minima?
+    </p>
+
+</body>
+
+</html>
