@@ -9,7 +9,6 @@ import Card from './Card';
 import Todo from './Todo';
 import Counter from './Counter';
 import Shopping from './Shopping';
-import FetchTodos from './FetchTodos';
 
 // App()
 
@@ -24,8 +23,7 @@ root.render(
 
   <>
     {/* <Counter /> */}
-    <FetchTodos/>
-    {/* <Shopping/> */}
+    <Shopping/>
     {/* <Todo title="todo one" /> */}
     {/* <Todo title="todo tow" /> */}
   </>
