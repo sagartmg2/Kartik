@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ login_status, setLoginStatus }) => {
+
+    const handleLogout = () => {
+        localStorage.clear()
+        setLoginStatus(false)
+    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -11,13 +17,19 @@ const Navbar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                       
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/signup">Singup</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="/login">Login</Link>
-                        </li>
+
+                        {
+                            !login_status
+                            &&
+                            <>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/signup">Singup</Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to="/login">Login</Link>
+                                </li>
+                            </>
+                        }
                         <li className="nav-item dropdown">
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Dropdown
@@ -37,6 +49,11 @@ const Navbar = () => {
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                         <button className="btn btn-outline-success" type="submit">Search</button>
                     </form>
+                    {
+                        login_status
+                        &&
+                        <button className="btn btn-sm btn-secondary ml-3" onClick={handleLogout}>logout</button>
+                    }
                 </div>
             </div>
         </nav>

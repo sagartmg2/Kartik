@@ -40,7 +40,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        <Navbar login_status={login_status} setLoginStatus={setLoginStatus} />
         <div className='container' >
           <Routes>
             <Route path='' element={<Home login_status={login_status} />} ></Route>

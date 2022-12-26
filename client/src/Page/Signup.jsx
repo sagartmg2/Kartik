@@ -8,6 +8,10 @@ const Signup = () => {
 
     const [is_submitting, setIsSubmitting] = useState(false)
     const [errors, setErrors] = useState([])
+    const [error, setError] = useState({
+        name: "",
+        email: "",
+    })
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -31,6 +35,13 @@ const Signup = () => {
                 setIsSubmitting(false)
                 console.log(err)
                 setErrors(err.response.data.errors)
+
+                let temp = {} // spread operator
+
+                err.response.data.errors.forEach(validation_error => {
+                    temp[validation_error["param"]] = validation_error.msg
+                })
+                setError(temp)
             })
 
         console.log({ data });
@@ -42,35 +53,48 @@ const Signup = () => {
     return (
         <div>
             <h1>singup</h1>
-            <div class="alert alert-danger" role="alert">
+            <div className="alert alert-danger" role="alert">
                 This is a danger alert—check it out!
             </div>
             <form onSubmit={handleSubmit}>
-                <div class="form-group">
+                <div className="form-group">
                     <label for="exampleInputEmail1">Name</label>
-                    <input type="text" name='name' class="form-control" />
-                    <small style={{ color: "red" }}>the field is required</small>
+                    <input type="text" name='name' className="form-control" />
+                    {
+                        errors.find(el => el.param == "name")
+                        &&
+                        <small style={{ color: "red" }}> {errors.find(el => el.param == "name").msg}</small>
+                    }
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name='email' class="form-control" />
-                    <small style={{ color: "red" }}>the field is required</small>
+                    <input type="email" name='email' className="form-control" />
+                    {/* {
+                        errors.find(el => el.param == "email")
+                        &&
+                        <small style={{ color: "red" }}> {errors.find(el => el.param == "email").msg}</small>
+                    } */}
+                {
+                    error.email
+                    &&
+                    <small style={{ color: "red" }}> {error.email}</small>
+                }
 
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                     <label for="exampleInputEmail1">Password</label>
-                    <input type="text" name='password' class="form-control" />
+                    <input type="text" name='password' className="form-control" />
                     <small style={{ color: "red" }}>the field is required</small>
 
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                     <label for="exampleInputEmail1">Role</label>
-                    <select class="form-select" name='role'>
+                    <select className="form-select" name='role'>
                         <option value="buyer">Buyer</option>
                         <option value="seller">Seller</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary mt-5" disabled={is_submitting}>
+                <button type="submit" className="btn btn-primary mt-5" disabled={is_submitting}>
                     {
                         is_submitting ? "Submitting..." : "Submit"
                     }

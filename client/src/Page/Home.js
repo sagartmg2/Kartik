@@ -45,32 +45,32 @@ const Home = (props) => {
                 {
                     products.map(product => {
                         let src = product.images.length == 0 ? require("../Assets/Images/no-image.jpg") : product.images[0]
-                        return <div className='col-md-3 my-3'>
-                            <div class="card" >
+                        return <div className='col-md-3 my-3' key={product._id}>
+                            <div className="card" >
                                 {/* {
                                     product.images.length == 0
                                         ?
-                                        <img src={NOImage} class="card-img-top" alt="..."
+                                        <img src={NOImage} className="card-img-top" alt="..."
                                             style={{
                                                 height: "150px"
                                             }} />
                                         :
-                                        <img src={product.images[0]} class="card-img-top" alt="..."
+                                        <img src={product.images[0]} className="card-img-top" alt="..."
                                             style={{
                                                 height: "150px"
                                             }}
                                         />
                                 } */}
-                                <img src={src} class="card-img-top" alt="..."
+                                <img src={src} className="card-img-top" alt="..."
                                     style={{
                                         height: "150px"
                                     }}
                                 />
 
-                                <div class="card-body">
-                                    <h5 class="card-title">{product.name}</h5>
-                                    <p class="card-text">${product.price}</p>
-                                    <button class="btn btn-primary" onClick={handleAddToCart} >Add to cart</button>
+                                <div className="card-body">
+                                    <h5 className="card-title">{product.name}</h5>
+                                    <p className="card-text">${product.price}</p>
+                                    <button className="btn btn-primary" onClick={handleAddToCart} >Add to cart</button>
                                 </div>
                             </div>
 

@@ -1,15 +1,26 @@
+import { useState } from "react";
 import axios from "axios"
+
 import { useNavigate } from "react-router-dom";
 
 
 const Login = (props) => {
     const navigate = useNavigate()
+
+    const [email, setEmail] = useState("b@b.com")
+    const [password, setPassord] = useState("password")
+
+    const [data, setData] = useState({
+        email: "",
+        password: ""
+    })
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
         let data = {
-            "email": e.target.email.value,
-            "password": e.target.password.value,
+            "email": email,
+            "password": password,
         }
 
         let url = "https://ecommerce-sagartmg2.vercel.app/api/users/login"
@@ -29,20 +40,40 @@ const Login = (props) => {
         make request to api.  
          */
     }
+
+    console.log("render..");
+
+    const handlechangeEmail = () => {
+        setEmail()
+    }
+
+    const handleChange = () => {
+
+    }
+
+    // useEffect(() => {
+
+    // }, [input]);
+
     return (
         <div>
             <h1>login</h1>
             <form onSubmit={handleSubmit}>
 
-                <div class="form-group">
+                <div className="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" name='email' value={"s@s.com"} class="form-control" />
+                    {/* <input type="email" name='email' onChange={setEmail("e.target.value")}  value={email} className="form-control" /> */}
+                    <input type="email" name='email' onChange={(e) => {
+                        setEmail(e.target.value)
+                    }} value={email} className="form-control" />
                 </div>
-                <div class="form-group">
+                <div className="form-group">
                     <label for="exampleInputEmail1">Password</label>
-                    <input type="text" name='password' value={"password"} class="form-control" />
+                    <input type="text" name='password' onChange={(e) => {
+                        setPassord(e.target.value)
+                    }} value={password} className="form-control" />
                 </div>
-                <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                <button type="submit" className="btn btn-primary mt-5">Submit</button>
             </form>
 
             {/* 
