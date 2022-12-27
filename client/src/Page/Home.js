@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NOImage from "../Assets/Images/no-image.jpg"
+import RoleComponent from '../Components/RoleComponent';
 
 const Home = (props) => {
 
@@ -10,15 +11,25 @@ const Home = (props) => {
     const [products, setProduct] = useState([]);
 
     useEffect(() => {
-
-        axios.get(`${process.env.REACT_APP_SERVER_DOMAIN}products`)
+        axios.get(`${process.env.REACT_APP_SERVER_DOMAIN}products?search_term=${props.search_term}`)
             .then(res => {
                 // console.log(res.data.data[0].data)
                 setProduct(res.data.data[0].data)
             }).catch(err => {
 
             })
-    }, []);
+        // }, []);
+    }, [props.search_term]);
+
+    /* 
+    
+    useEffect(() => {
+       // do some task 
+    }, []); // ==> empty dependency - component Did Mount
+    }, [props.search_term]); // ==>  dependency with values - component Did UPdate
+    
+    
+    */
 
     const handleAddToCart = () => {
         console.log("add to cart");
@@ -38,8 +49,6 @@ const Home = (props) => {
             {/* <img src = "../Assets/Images/no-image.jpg" /> */}
             {/* <img src={require("../Assets/Images/no-image.jpg")} /> */}
             {/* <img src ={NOImage} /> */}
-
-
 
             <div className='row '>
                 {
@@ -70,7 +79,9 @@ const Home = (props) => {
                                 <div className="card-body">
                                     <h5 className="card-title">{product.name}</h5>
                                     <p className="card-text">${product.price}</p>
-                                    <button className="btn btn-primary" onClick={handleAddToCart} >Add to cart</button>
+                                    <RoleComponent role="buyer" user={props.user}>
+                                        <button className="btn btn-primary" onClick={handleAddToCart} >Add to cart</button>
+                                    </RoleComponent>
                                 </div>
                             </div>
 
