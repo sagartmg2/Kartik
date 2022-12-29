@@ -2,9 +2,12 @@ import { useState } from "react";
 import axios from "axios"
 
 import { useNavigate } from "react-router-dom";
-
-
+import { useDispatch } from "react-redux";
+import { setUser } from "../Redux/Slice/UserSlice";
 const Login = (props) => {
+
+    const dispatch = useDispatch();
+
     const navigate = useNavigate()
 
     const [email, setEmail] = useState("b@b.com")
@@ -36,6 +39,7 @@ const Login = (props) => {
                     }
                 }).then(user_res => {
                     props.setUser(user_res.data)
+                    dispatch(setUser(user_res.data))
                 })
 
 

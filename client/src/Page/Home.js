@@ -1,10 +1,15 @@
 import axios from 'axios';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import NOImage from "../Assets/Images/no-image.jpg"
 import RoleComponent from '../Components/RoleComponent';
+import { CartContext } from '../App';
 
 const Home = (props) => {
+
+    const cart_context = useContext(CartContext);
+
+    console.log("cart_context", cart_context)
 
     let navigate = useNavigate();
 
@@ -31,8 +36,53 @@ const Home = (props) => {
     
     */
 
-    const handleAddToCart = () => {
+    const handleAddToCart = (product) => {
         console.log("add to cart");
+
+        /* 
+            [
+                    {
+                        _id,
+                        name,
+                        price,
+                        quanity : 2 
+                    },
+                    {
+                        name,
+                        price,
+                        quanity
+                    },
+            ]
+        
+        */
+
+        if (cart_context.cart_items.find(cart_item => cart_item._id === product._id)) {
+            // setCartItems([...cart_items, product])
+            let temp = [...cart_context.cart_items].map(el => {
+                if (el._id == product._id) {
+                    return {
+                        ...el,
+                        quantity: el.quantity + 1
+                    }
+                } else {
+                    return el
+                }
+            })
+
+            cart_context.setCartItems(temp)
+
+        } else {
+            cart_context.setCartItems([
+                ...cart_context.cart_items,
+                {
+                    ...product,
+                    quantity: 1
+                }
+            ])
+        }
+
+
+
 
         /* 
             check if login or not 
@@ -40,6 +90,8 @@ const Home = (props) => {
         if (!props.login_status) {
             navigate("/login")
         }
+
+
 
     }
 
@@ -80,7 +132,7 @@ const Home = (props) => {
                                     <h5 className="card-title">{product.name}</h5>
                                     <p className="card-text">${product.price}</p>
                                     <RoleComponent role="buyer" user={props.user}>
-                                        <button className="btn btn-primary" onClick={handleAddToCart} >Add to cart</button>
+                                        <button className="btn btn-primary" onClick={() => handleAddToCart(product)} >Add to cart</button>
                                     </RoleComponent>
                                 </div>
                             </div>

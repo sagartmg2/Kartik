@@ -1,12 +1,15 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setUser } from '../Redux/Slice/UserSlice';
 
 const Navbar = ({ login_status, setLoginStatus, search_term, setSearchTerm, user }) => {
-
+    const dispatch = useDispatch();
 
     const handleLogout = () => {
         localStorage.clear()
         setLoginStatus(false)
+        dispatch(setUser(null))
     }
 
     return (

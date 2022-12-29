@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, createContext } from 'react';
 import {
   BrowserRouter,
   RouterProvider,
@@ -16,11 +16,17 @@ import axios from 'axios';
 import Cart from './Page/Cart';
 import ProtectedRoute from './Components/ProtectedRoute';
 
+export const CartContext = createContext()
 
 function App() {
 
   const [login_status, setLoginStatus] = useState(false);
-  const [user, setUser] = useState(null);
+  
+  const [user, setUser] = useState(null);  // after login {name,id,role}
+
+  const [cart_itmes, setCartItems] = useState([
+
+  ]);
 
   const [search_term, setSearchTerm] = useState("");
 
@@ -45,23 +51,29 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Navbar user={user} login_status={login_status} setLoginStatus={setLoginStatus} search_term={search_term} setSearchTerm={setSearchTerm} />
-        <div className='container' >
-          <Routes>
-            <Route path='' element={<Home user={user} login_status={login_status} search_term={search_term} />} ></Route>
-            <Route path='login' element={<Login
-              setUser={setUser}
-              setLoginStatus={setLoginStatus} />} ></Route>
-            <Route path='signup' element={<Signup />} ></Route>
+      <CartContext.Provider value={{
+        cart_items: cart_itmes,
+        setCartItems
+      }}>
+        <BrowserRouter>
+          <Navbar user={user} login_status={login_status} setLoginStatus={setLoginStatus} search_term={search_term} setSearchTerm={setSearchTerm} />
+          <div className='container' >
+            <Routes>
+              <Route path='' element={<Home user={user} login_status={login_status} search_term={search_term} />} ></Route>
+              <Route path='login' element={<Login
+                setUser={setUser}
+                setLoginStatus={setLoginStatus} />} ></Route>
+              <Route path='signup' element={<Signup />} ></Route>
 
-            <Route path="" element={<ProtectedRoute login_status={login_status} />}>
-              <Route path='cart' element={<Cart />} ></Route>
-            </Route>
+              <Route path="" element={<ProtectedRoute login_status={login_status} />}>
+                <Route path='cart' element={<Cart />} ></Route>
+              </Route>
 
-          </Routes>
-        </div>
-      </BrowserRouter>
+            </Routes>
+          </div>
+        </BrowserRouter>
+      </CartContext.Provider >
+
 
     </>
   );
