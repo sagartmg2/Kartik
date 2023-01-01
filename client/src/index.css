@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.react-paginate-wrapper ul {
+  padding: 0;
+}
+
+.react-paginate-wrapper li {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.react-paginate-wrapper li.selected {
+  background-color: aquamarine;
+}

@@ -4,27 +4,36 @@ import { useNavigate } from 'react-router-dom';
 import NOImage from "../Assets/Images/no-image.jpg"
 import RoleComponent from '../Components/RoleComponent';
 import { CartContext } from '../App';
+import ReactPaginate from 'react-paginate';
+
 
 const Home = (props) => {
 
     const cart_context = useContext(CartContext);
 
-    console.log("cart_context", cart_context)
 
     let navigate = useNavigate();
 
     const [products, setProduct] = useState([]);
 
+    const [pagination_info, setPaginationInfo] = useState({
+        total: 0,
+        per_page: 25,
+        page: 1,
+    })
+
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_SERVER_DOMAIN}products?search_term=${props.search_term}`)
+        axios.get(`${process.env.REACT_APP_SERVER_DOMAIN}products?search_term=${props.search_term}&page=${pagination_info.page}`)
             .then(res => {
                 // console.log(res.data.data[0].data)
                 setProduct(res.data.data[0].data)
+                setPaginationInfo(res.data.data[0].metadata[0])
+
             }).catch(err => {
 
             })
         // }, []);
-    }, [props.search_term]);
+    }, [props.search_term, pagination_info.page]);
 
     /* 
     
@@ -91,9 +100,9 @@ const Home = (props) => {
             navigate("/login")
         }
 
-
-
     }
+
+
 
     return (
         <>
@@ -141,6 +150,31 @@ const Home = (props) => {
                     })
                 }
             </div>
+            {
+                products.length > 0
+                &&
+                <div className='row'>
+                    <div className="react-paginate-wrapper">
+                        <ReactPaginate
+                            breakLabel="..."
+                            nextLabel="next >"
+                            onPageChange={(e) => {
+                                console.log(e)
+
+                                setPaginationInfo({
+                                    ...pagination_info,
+                                    page: (e.selected + 1)
+                                })
+
+                            }}
+                            pageRangeDisplayed={5}
+                            pageCount={Math.ceil(pagination_info.total / pagination_info.per_page)}
+                            previousLabel="< previous"
+                            renderOnZeroPageCount={null}
+                        />
+                    </div>
+                </div>
+            }
         </>
 
     );

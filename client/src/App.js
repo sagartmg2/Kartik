@@ -21,7 +21,7 @@ export const CartContext = createContext()
 function App() {
 
   const [login_status, setLoginStatus] = useState(false);
-  
+  const [dataw_fetched, setDataFetched] = useState(false)
   const [user, setUser] = useState(null);  // after login {name,id,role}
 
   const [cart_itmes, setCartItems] = useState([
@@ -42,12 +42,19 @@ function App() {
         .then(res => {
           setLoginStatus(true)
           setUser(res.data)
+          setDataFetched(true)
         })
         .catch(err => {
 
         })
+    } else {
+      setDataFetched(true)
     }
   }, []);
+
+  if (!dataw_fetched) {
+    return <h1>data fetching.. please wait..</h1>
+  }
 
   return (
     <>
