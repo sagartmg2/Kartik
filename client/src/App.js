@@ -15,6 +15,8 @@ import './App.css';
 import axios from 'axios';
 import Cart from './Page/Cart';
 import ProtectedRoute from './Components/ProtectedRoute';
+import Show from './Page/Product/Show';
+import Create from './Page/Product/Create';
 
 export const CartContext = createContext()
 
@@ -71,6 +73,10 @@ function App() {
                 setUser={setUser}
                 setLoginStatus={setLoginStatus} />} ></Route>
               <Route path='signup' element={<Signup />} ></Route>
+              <Route path='products'  >
+                <Route path=':id' element={<Show/>} />
+                <Route path='create' element={<Create/>} />
+              </Route>
 
               <Route path="" element={<ProtectedRoute login_status={login_status} />}>
                 <Route path='cart' element={<Cart />} ></Route>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import NOImage from "../Assets/Images/no-image.jpg"
 import RoleComponent from '../Components/RoleComponent';
 import { CartContext } from '../App';
@@ -34,6 +34,40 @@ const Home = (props) => {
             })
         // }, []);
     }, [props.search_term, pagination_info.page]);
+
+    /* 
+            CRUD
+            create
+            read
+            update
+            de;ete
+    
+    
+            HTTP METHOD 
+            GET - READ
+            POST    - CREATE
+            PUT / PATCH  - UPDATE
+            DELETE
+    
+            status
+            2
+                200,201,204
+            4
+                400 - bad request
+                401 - unauthnticated
+                403 - forbidden
+                404  - resource not found
+            5
+                500 - server error
+    */
+
+    /* 
+        auth flow 
+            1. login
+            2. backend checks if email and password are correct
+            3. if incorrect 401 , 200-> access-token
+            4. access protected api resources using that token  // usually sent in headers as authorization header
+    */
 
     /* 
     
@@ -116,8 +150,10 @@ const Home = (props) => {
                     products.map(product => {
                         let src = product.images.length == 0 ? require("../Assets/Images/no-image.jpg") : product.images[0]
                         return <div className='col-md-3 my-3' key={product._id}>
-                            <div className="card" >
-                                {/* {
+                            <Link to={`/products/${product._id}`}>
+
+                                <div className="card" >
+                                    {/* {
                                     product.images.length == 0
                                         ?
                                         <img src={NOImage} className="card-img-top" alt="..."
@@ -131,21 +167,21 @@ const Home = (props) => {
                                             }}
                                         />
                                 } */}
-                                <img src={src} className="card-img-top" alt="..."
-                                    style={{
-                                        height: "150px"
-                                    }}
-                                />
+                                    <img src={src} className="card-img-top" alt="..."
+                                        style={{
+                                            height: "150px"
+                                        }}
+                                    />
 
-                                <div className="card-body">
-                                    <h5 className="card-title">{product.name}</h5>
-                                    <p className="card-text">${product.price}</p>
-                                    <RoleComponent role="buyer" user={props.user}>
-                                        <button className="btn btn-primary" onClick={() => handleAddToCart(product)} >Add to cart</button>
-                                    </RoleComponent>
+                                    <div className="card-body">
+                                        <h5 className="card-title">{product.name}</h5>
+                                        <p className="card-text">${product.price}</p>
+                                        <RoleComponent role="buyer" user={props.user}>
+                                            <button className="btn btn-primary" onClick={() => handleAddToCart(product)} >Add to cart</button>
+                                        </RoleComponent>
+                                    </div>
                                 </div>
-                            </div>
-
+                            </Link>
                         </div>
                     })
                 }

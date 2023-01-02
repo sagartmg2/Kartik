@@ -1,5 +1,11 @@
 https://ecommerce-sagartmg2.vercel.app/api-docs/
 
+jan 2
+    - in product show page, make the image dynamic.  and if no any image, show no iamge 
+    - after creation of procut, show success, error alerts
+    - after one click of submit button in create proeduct, disable submit button
+    - add section to add multiple categories - which should also be able to be deleted 
+
 
 dec 28
     - use context
