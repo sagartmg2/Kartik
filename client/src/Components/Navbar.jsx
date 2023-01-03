@@ -38,13 +38,22 @@ const Navbar = ({ login_status, setLoginStatus, search_term, setSearchTerm, user
                                     {
                                         user?.role == "buyer"
                                         &&
+                                        <>
                                         <li className="nav-item">
                                             <Link className="nav-link" to="/cart">Cart</Link>
                                         </li>
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/order">Order</Link>
+                                        </li>
+                                        </>
                                     }
-                                    <li className="nav-item">
-                                        <Link className="nav-link" to="/products/create">Create Product</Link>
-                                    </li>
+                                    {
+                                        user?.role == "seller"
+                                        &&
+                                        <li className="nav-item">
+                                            <Link className="nav-link" to="/products/create">Create Product</Link>
+                                        </li>
+                                    }
                                 </>
                         }
                     </ul>

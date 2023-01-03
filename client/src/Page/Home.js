@@ -22,7 +22,8 @@ const Home = (props) => {
         page: 1,
     })
 
-    useEffect(() => {
+
+    const fetchProducts = () => {
         axios.get(`${process.env.REACT_APP_SERVER_DOMAIN}products?search_term=${props.search_term}&page=${pagination_info.page}`)
             .then(res => {
                 // console.log(res.data.data[0].data)
@@ -32,6 +33,10 @@ const Home = (props) => {
             }).catch(err => {
 
             })
+    }
+
+    useEffect(() => {
+        fetchProducts()
         // }, []);
     }, [props.search_term, pagination_info.page]);
 
@@ -136,6 +141,20 @@ const Home = (props) => {
 
     }
 
+    function deleteProduct(id) {
+        axios.delete("https://ecommerce-sagartmg2.vercel.app/api/products/" + id, {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("token")
+            }
+        })
+            .then(res => {
+                fetchProducts()
+            })
+            .catch(err => {
+
+            })
+    }
+
 
 
     return (
@@ -177,7 +196,22 @@ const Home = (props) => {
                                         <h5 className="card-title">{product.name}</h5>
                                         <p className="card-text">${product.price}</p>
                                         <RoleComponent role="buyer" user={props.user}>
-                                            <button className="btn btn-primary" onClick={() => handleAddToCart(product)} >Add to cart</button>
+                                            <button className="btn btn-primary" onClick={(e) => {
+                                                e.preventDefault();
+                                                handleAddToCart(product)
+                                            }} >Add to cart</button>
+                                        </RoleComponent>
+                                        <RoleComponent role="seller" user={props.user}>
+                                            <Link to={`products/edit/${product._id}`}>
+                                                <button className="btn btn-secondary" onClick={(e) => {
+                                                    handleAddToCart(product)
+                                                }} >edit</button>
+                                            </ Link>
+
+                                            <button className="btn btn-danger mx-2" onClick={(e) => {
+                                                e.preventDefault();
+                                                deleteProduct(product._id);
+                                            }} >delete</button>
                                         </RoleComponent>
                                     </div>
                                 </div>

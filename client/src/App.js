@@ -16,11 +16,15 @@ import axios from 'axios';
 import Cart from './Page/Cart';
 import ProtectedRoute from './Components/ProtectedRoute';
 import Show from './Page/Product/Show';
-import Create from './Page/Product/Create';
+import Upsert from './Page/Product/Create';
+import { useDispatch } from 'react-redux';
+import { setUser as setReduxUser } from "./Redux/Slice/UserSlice"
 
 export const CartContext = createContext()
 
 function App() {
+
+  const dispatch = useDispatch();
 
   const [login_status, setLoginStatus] = useState(false);
   const [dataw_fetched, setDataFetched] = useState(false)
@@ -45,6 +49,7 @@ function App() {
           setLoginStatus(true)
           setUser(res.data)
           setDataFetched(true)
+          dispatch(setReduxUser(res.data))
         })
         .catch(err => {
 
@@ -74,8 +79,9 @@ function App() {
                 setLoginStatus={setLoginStatus} />} ></Route>
               <Route path='signup' element={<Signup />} ></Route>
               <Route path='products'  >
-                <Route path=':id' element={<Show/>} />
-                <Route path='create' element={<Create/>} />
+                <Route path='edit/:id' element={<Upsert />} />
+                <Route path=':id' element={<Show />} />
+                <Route path='create' element={<Upsert />} />
               </Route>
 
               <Route path="" element={<ProtectedRoute login_status={login_status} />}>

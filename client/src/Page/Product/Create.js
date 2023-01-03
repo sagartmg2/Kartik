@@ -1,7 +1,21 @@
 import axios from 'axios';
-import React from 'react'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom';
 
 export default function Create() {
+
+    const [product, setproduct] = useState({});
+    const { id } = useParams()
+
+    useEffect(() => {
+        if (id) {
+            axios.get(`https://ecommerce-sagartmg2.vercel.app/api/products/${id}`)
+                .then(res => {
+                    setproduct(res.data.data)
+                })
+        }
+    }, []);
+
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -23,19 +37,41 @@ export default function Create() {
         form_data.append("name", e.target.name.value)
         form_data.append("price", e.target.price.value)
 
-        let temp = [...e.target.images.files]
-        temp.forEach(image => {
+        // let temp = [...e.target.images.files]
+        // .forEach(image => {
+        //     form_data.append("images", image)
+        // })
+
+        product.images.forEach(image => {
             form_data.append("images", image)
         })
 
-        axios.post(`https://ecommerce-sagartmg2.vercel.app/api/products`, form_data, {
+
+
+        let method = "post"
+        let url = `https://ecommerce-sagartmg2.vercel.app/api/products`
+
+        if (id) {
+            method = "put"
+            url = `https://ecommerce-sagartmg2.vercel.app/api/products/${id}`
+        }
+
+        axios[method](url, form_data, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`
             }
         })
-        .then(res =>{
-            alert("success")
-        })
+            .then(res => {
+                alert("success")
+            })
+    }
+
+    function handleChange(e) {
+        if (e.target.type == "file") {
+            setproduct({ ...product, [e.target.name]: [...product.images, ...e.target.files] })
+        } else {
+            setproduct({ ...product, [e.target.name]: e.target.value })
+        }
     }
 
     return (
@@ -43,15 +79,28 @@ export default function Create() {
             <form onSubmit={handleSubmit}>
                 <div class="mb-3">
                     <label for="" class="form-label">Name</label>
-                    <input type="text" name='name' class="form-control" id="" required />
+                    <input type="text" name='name' value={product.name} onChange={handleChange} class="form-control" id="" required />
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">price</label>
-                    <input type="number" name='price' class="form-control" id="" required />
+                    <input type="number" name='price' value={product.price} onChange={handleChange} class="form-control" id="" required />
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Images</label>
-                    <input type="file" multiple name="images" class="form-control" id="" />
+                    <div>
+                        {
+                            product.images?.map(image => {
+
+                                let src = image;
+                                if (typeof (image) != "string") {
+                                    src =  URL.createObjectURL(image)
+                                }
+
+                                return <img src={src} height="100" width={100} />
+                            })
+                        }
+                    </div>
+                    <input type="file" multiple name="images" onChange={handleChange} class="form-control" id="" />
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>

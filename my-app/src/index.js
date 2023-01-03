@@ -19,8 +19,6 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
   Tood("two")
 */
 root.render(
-
-
   <>
     {/* <Counter /> */}
     <Shopping/>
