@@ -1,30 +1,14 @@
 const express = require("express") // common js 
-const mongoose = require('mongoose');
-const app = express();
-
-app.use(express.json())
-mongoose.set("strictQuery", false);
-
-
 const product_route = require("./route/product")
-app.use("/api/products",product_route)
+const auth_route = require("./route/auth")
 
-mongoose.connect('mongodb://127.0.0.1:27017/kartik')
-    .then(() => console.log('Connected!'));
+require("./config/database")
+const app = express();
+app.use(express.json())
+app.use("/api/products", product_route)
 
-app.post("/api/signup", (req, res) => {
-    console.log(req.body)
-    /* 
-        db.users.insertOne({
-            name:
-            email:
-        })
-    */
-    res.send({
-        msg: "Test successful"
-    })
-
-})
+// app.use(require("./route/auth"))
+app.use("/api", auth_route)
 
 app.get("/test", (req, res) => {
     res.send({
@@ -33,13 +17,40 @@ app.get("/test", (req, res) => {
 })
 
 
+/* 
+    error handling middleware
+*/
+app.use((err, req, res, next) => {
+
+    let status = 500;
+    let msg = "Server Error"
+    let errors = []
+
+
+    if (err.name == "ValidationError") {
+        status = 400
+        msg = "Bad Request "
+        Object.entries(err.errors).forEach((err) => {
+            errors.push({
+                msg: err[1].message,
+                param: err[0]
+            })
+        })
+    }
+
+    res.status(status).send({
+        msg,
+        errors,
+    })
+})
+
 app.listen(8000, () => {
     console.log("server started");
 })
 /* 
     MVC 
-        - modal
-        - view 
-        - controller
+        - modal // database
+        - view  // browser 
+        - controller // logic
 
 */
