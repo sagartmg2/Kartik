@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router();
+const bcrypt = require("bcrypt")
 
 const User = require("../model/User")
 
@@ -35,9 +36,39 @@ router.post("/signup", body('name').exists().withMessage("required field"), (req
 
         try {
 
+
+            let existing_user = await User.find({ email: req.body.email }).countDocuments();
+            console.log(existing_user)
+
+            /* falsy values 
+                null
+                undefined
+                0
+                ....
+            */
+
+            // if(existing_user){
+            //     res.status(400).send({
+            //         "errors": [
+            //             {
+            //                 "msg": "email already exists. ",
+            //                 "param": "email",
+            //             }
+            //         ]
+            //     })
+            // }
+
+            let hashed = await bcrypt.hash(req.body.password, 10);
+
+            // return;
+            console.log(hashed)
             console.log("do task one")
 
-            let user = await User.create(req.body)
+            // $2b$10$M.v.JXUCrhXX8OLW3bQhPuM1h02xgZ4Kb/PDsAjAXYfbh81gqxNdi
+            // $2b$10$XIOrQDIaC3MgCnFLWv/a2.ePPjTiGflLQxtzIgCTFoyZDjwBsutdi
+
+            // let user = await User.create({ ...req.body, password: hashed })
+            let user = await User.create({ ...req.body })
             res.send(user)
         }
         catch (err) {
@@ -46,8 +77,23 @@ router.post("/signup", body('name').exists().withMessage("required field"), (req
 
     })
 
-router.post("/login", (req, res) => {
-    res.send("login")
+router.post("/login", async (req, res) => {
+
+    let user = await User.findOne({ email: req.body.email }); //{}
+
+    if (user) {
+        let status = await bcrypt.compare(req.body.password, user.password);
+        if (status) {
+            return res.send({
+                token: "token"
+            })
+        }
+    }
+
+    return res.status(401).send({
+        msg: "Invalid Credentails"
+    })
+
 })
 
 module.exports = router
