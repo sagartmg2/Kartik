@@ -5,6 +5,7 @@ const auth_route = require("./route/auth")
 require("./config/database")
 const app = express();
 app.use(express.json())
+require('dotenv').config()
 app.use("/api/products", product_route)
 
 // app.use(require("./route/auth"))
@@ -40,6 +41,7 @@ app.use((err, req, res, next) => {
 
     res.status(status).send({
         msg,
+        error:err.message,
         errors,
     })
 })
