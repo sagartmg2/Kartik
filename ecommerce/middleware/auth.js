@@ -6,10 +6,11 @@ const authenticate = (req, res, next) => {
     let token = req.headers.authorization?.split(" ")[1]
     let user = null;
     if (token) {
-        try{
+        try {
             user = jwt.verify(token, process.env.JWT_SECRET);
+            req.user = user;
         }
-        catch(err){
+        catch (err) {
             return res.status(401).send({
                 msg: "Invalid",
                 error: err.messsage
@@ -27,11 +28,21 @@ const authenticate = (req, res, next) => {
     }
 }
 
-const checkRole = () => { console.log("check role") };
+const isSeller = (req, res, next) => {
+
+    if (req.user.role === "seller") {
+        return next();
+    }
+    res.status(403).send({
+        msg: "Access Denied, only for sller"
+    })
+
+}
 
 
 
 module.exports = {
     authenticate,
+    isSeller
 
 }
