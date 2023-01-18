@@ -30,6 +30,19 @@ const ProductSchema = new Schema({
                 min: 0,
                 max: 5,
                 required: true,
+            },
+            created_by: {
+                type: {
+                    name: {
+                        type: String,
+                        required: true,
+                    },
+                    email: {
+                        type: String,
+                        required: true,
+                    }
+                },
+                required: true,
             }
         }
     ],
@@ -41,7 +54,8 @@ const ProductSchema = new Schema({
 },
     {
         timestamps: true,
-    });
+    }
+);
 
 module.exports = mongoose.model("Product", ProductSchema)
 

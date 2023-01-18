@@ -18,8 +18,9 @@ const index = async (req, res) => {
     let price_to = parseFloat(req.query.price_to) || 999999999999
     let page = parseInt(req.query.page) || 1
     let per_page = parseInt(req.query.per_page) || 2
+    let rating = parseInt(req.query.rating) || 0
 
-    let sort = {}
+    let sort = { name: 1 }
     sort_by = req.query.sort
     // if (sort_by == "nameasc") {
     //     sort = { name: 1 }
@@ -108,7 +109,8 @@ const index = async (req, res) => {
         },
         {
             $sort: sort
-        }
+        },
+
     ])
 
     console.log(count.length)
@@ -141,9 +143,19 @@ const index = async (req, res) => {
         {
             $unwind: "$created_by"
         },
+
+        {
+            $addFields: { avg_rating: { $avg: "$reviews.rating" } }
+        },
+        {
+            $match: {
+                "avg_rating": { $gte: rating }
+            }
+        },
         {
             $project: {
-                "created_by.password": 0
+                "created_by.password": 0,
+                "avg_rating": 0,
             }
         },
         {
@@ -155,6 +167,7 @@ const index = async (req, res) => {
         {
             $limit: per_page
         },
+
 
     ])
 
@@ -230,9 +243,36 @@ const remove = async (req, res, next) => {
 
 }
 
+const updateReview = async (req, res, next) => {
+    try {
+
+        let product = await Product.findByIdAndUpdate(req.params.id, {
+            $push: {
+                reviews: {
+                    comment: req.body.comment,
+                    rating: req.body.rating,
+                    created_by: {
+                        name: req.user.name,
+                        email: req.user.email
+                    }
+                }
+            }
+        }, {
+            new: true,
+            runValidators: true,
+        })
+        res.send(product)
+    }
+    catch (err) {
+        next(err)
+    }
+}
+
+
 module.exports = {
     index,
     store,
     update,
-    remove
+    remove,
+    updateReview
 }

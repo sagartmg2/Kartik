@@ -38,11 +38,22 @@ const isSeller = (req, res, next) => {
     })
 
 }
+const isBuyer = (req, res, next) => {
+
+    if (req.user.role === "buyer") {
+        return next();
+    }
+    res.status(403).send({
+        msg: "Access Denied, only for buyer"
+    })
+
+}
 
 
 
 module.exports = {
     authenticate,
-    isSeller
+    isSeller,
+    isBuyer
 
 }
